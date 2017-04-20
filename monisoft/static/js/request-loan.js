@@ -5,7 +5,6 @@ function sendApprovedRequestLoan() {
   $.post(url, data, function(response) {
     switch (response.status) {
       case '200':
-        debugger;
         var state = response.data.approved ? 'approved': 'NOT approved';
         toastr.info('Your loan request is: ' + state);
         break;
