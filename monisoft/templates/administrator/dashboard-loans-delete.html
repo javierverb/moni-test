@@ -1,0 +1,10 @@
+{% extends "administrator/base.html" %}
+
+{% block content %}
+  <br>
+  <form method="post">{% csrf_token %}
+      ¿Are u sure will delete this request loan "{{ object }}"?
+      <br><br>
+      <input class="btn btn-danger" type="submit" value="Delete" />
+  </form>
+{% endblock content %}

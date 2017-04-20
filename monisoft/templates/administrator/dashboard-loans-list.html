@@ -1,0 +1,30 @@
+{% extends "administrator/base.html" %}
+
+{% block content %}
+  <br>
+  <ul class="col-xs-12">
+    {% for rl in request_loans %}
+        <div class="row">
+          <a href="{% url 'request-loan-update' rl.id %}">
+            <span>First name: {{ rl.first_name | capfirst }}</span>
+            <br>
+            <span>Last name: {{ rl.last_name | capfirst }}</span>
+            <br>
+            <span>Email: {{ rl.email }}</span>
+            <br>
+            <span>DNI: {{ rl.document_number }}</span>
+            <br>
+            <span>Gender: {{ rl.get_gender_display }}</span>
+            <br>
+            <span>Request amount: ${{ rl.request_amount }} </span>
+          </a>
+          <a style="margin-left: 5em;" type="button" class="btn btn-danger"
+             href="{% url 'request-loan-delete' rl.id %}">
+            Eliminar
+          </a>
+        </div>
+        </div>
+      <hr>
+    {% endfor %}
+  </ul>
+{% endblock content %}

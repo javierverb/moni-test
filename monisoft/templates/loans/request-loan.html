@@ -1,0 +1,30 @@
+{% extends "loans/base.html" %}
+{% load static %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'third-party/toastr/toastr.min.css' %}">
+{% endblock styles %}
+
+{% block title %}
+  <br>
+  <h1>Solicitar un préstamo</h1>
+  <br>
+{% endblock title %}
+
+{% block content %}
+  <div class="col-xs-12">
+    <form method="POST" id="request-loan-form"
+          onsubmit="">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+    <button onclick="sendApprovedRequestLoan()">Solicitar un préstamo</button>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'third-party/toastr/toastr.min.js' %}"></script>
+  <script src="{% static 'js/request-loan.js' %}"></script>
+{% endblock scripts %}
